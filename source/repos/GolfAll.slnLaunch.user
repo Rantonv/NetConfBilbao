@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "Nuevo perfil",
+    "Projects": [
+      {
+        "Path": "GolfAllWeb\\GolfAllWeb.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "GolfAllApi\\GolfAllApi.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

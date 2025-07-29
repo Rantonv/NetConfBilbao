@@ -1,0 +1,49 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "GolfDevoTeam";
+}
+
+<style>
+    body {
+        background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') no-repeat center center fixed, linear-gradient(135deg, #b2f7efcc 0%, #f7d6e0cc 100%);
+        background-size: cover;
+        min-height: 100vh;
+    }
+    .golf-hero {
+        background: rgba(255,255,255,0.90);
+        border-radius: 24px;
+        box-shadow: 0 4px 24px rgba(46,139,87,0.10);
+        padding: 3rem 2rem;
+        margin-bottom: 2rem;
+    }
+    .golf-title {
+        color: #2e8b57;
+        font-weight: bold;
+        text-shadow: 1px 1px 0 #fff;
+    }
+    .golf-lead {
+        color: #1e3d59;
+        font-size: 1.3rem;
+    }
+    .golf-img {
+        border-radius: 18px;
+        box-shadow: 0 2px 12px rgba(46,139,87,0.15);
+        max-width: 100%;
+        height: auto;
+    }
+</style>
+
+<div class="container py-5">
+    <div class="golf-hero text-center">
+        <h1 class="display-4 golf-title mb-3">¡Bienvenido a GolfDevoTeam!</h1>
+        <p class="golf-lead mb-4">
+            Tu tienda online de confianza para material de golf.<br />
+            Descubre palos, bolas, guantes y todo lo que necesitas para mejorar tu juego.
+        </p>
+        <img src="https://images.unsplash.com/photo-1519681393-2de5e0c1df6a?auto=format&fit=crop&w=800&q=80" alt="Palos de golf" class="golf-img my-3" style="max-width: 500px;">
+        <div class="mt-4">
+            <a href="/ProductosGolf" class="btn btn-success btn-lg">Ver catálogo de productos</a>
+        </div>
+    </div>
+</div>

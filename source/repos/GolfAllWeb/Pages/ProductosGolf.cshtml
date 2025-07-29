@@ -1,0 +1,94 @@
+@page
+@model ChucheriasWeb.Pages.ProductosGolfModel
+@{
+    ViewData["Title"] = "Material de Golf";
+}
+
+<style>
+    body {
+        background: linear-gradient(135deg, #b2f7ef 0%, #f7d6e0 100%);
+    }
+    .producto-card {
+        border: 2px solid #2e8b57;
+        border-radius: 18px;
+        box-shadow: 0 4px 16px rgba(46, 139, 87, 0.15);
+        background: #f8fff8;
+        transition: transform 0.2s;
+    }
+    .producto-card:hover {
+        transform: scale(1.04);
+        box-shadow: 0 8px 24px rgba(46, 139, 87, 0.25);
+    }
+    .producto-title {
+        color: #2e8b57;
+        font-weight: bold;
+    }
+    .producto-tipo {
+        color: #1e3d59;
+    }
+    .producto-marca {
+        color: #b22222;
+    }
+</style>
+
+<div class="container py-5">
+    <h1 class="display-4 text-center mb-4">Catálogo de Material de Golf</h1>
+
+    <div class="mb-5">
+        <h4>Agregar nuevo producto</h4>
+        <form method="post">
+            <div class="row g-2 align-items-center">
+                <div class="col-md-3">
+                    <input asp-for="NuevoNombre" class="form-control" placeholder="Nombre del producto" required />
+                </div>
+                <div class="col-md-3">
+                    <input asp-for="NuevoTipo" class="form-control" placeholder="Tipo (Palo, Bola, Guante...)" required />
+                </div>
+                <div class="col-md-3">
+                    <input asp-for="NuevaMarca" class="form-control" placeholder="Marca" required />
+                </div>
+                <div class="col-md-3">
+                    <button type="submit" asp-page-handler="Agregar" class="btn btn-success">Agregar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="mb-5">
+        <h4>Tipos de productos disponibles</h4>
+        <ul class="list-inline">
+            @foreach (var tipo in Model.Tipos)
+            {
+                <li class="list-inline-item badge bg-success text-light p-2 m-1">@tipo</li>
+            }
+        </ul>
+    </div>
+
+    <div class="row">
+        @if (Model.Catalogo.Count == 0)
+        {
+            <div class="col-12 text-center">
+                <p class="lead">No hay productos disponibles.</p>
+            </div>
+        }
+        else
+        {
+            @foreach (var producto in Model.Catalogo)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card producto-card h-100">
+                        <img src="@producto.ImagenUrl" class="card-img-top" alt="@producto.Nombre" style="height: 200px; object-fit: cover; border-radius: 16px 16px 0 0;">
+                        <div class="card-body">
+                            <h5 class="card-title producto-title">@producto.Nombre</h5>
+                            <p class="card-text producto-tipo">Tipo: @producto.Tipo</p>
+                            <p class="card-text producto-marca">Marca: @producto.Marca</p>
+                            <form method="post">
+                                <button type="submit" asp-page-handler="Eliminar" asp-route-id="@producto.Id" class="btn btn-danger btn-sm mt-2">Eliminar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
