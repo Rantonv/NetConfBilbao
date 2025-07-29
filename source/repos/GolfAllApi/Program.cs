@@ -5,6 +5,18 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
 builder.Services.AddAuthorization();
 builder.Services.AddRazorPages(); // Registrar Razor Pages
+builder.Services.AddControllers(); // Registrar controladores
+
+// Habilitar CORS para permitir peticiones desde cualquier origen (solo para desarrollo)
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
 
 var app = builder.Build();
 
@@ -16,8 +28,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseCors(); // Usar CORS
+
 app.UseAuthorization();
 
 app.MapRazorPages(); // Usar Razor Pages
+app.MapControllers(); // Mapear controladores
 
 app.Run();

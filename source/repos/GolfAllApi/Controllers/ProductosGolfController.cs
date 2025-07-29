@@ -2,6 +2,9 @@ using Microsoft.AspNetCore.Mvc;
 using GolfAllApi.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
+using System.IO;
+using System.Diagnostics;
 
 namespace GolfAllApi.Controllers
 {
@@ -9,35 +12,70 @@ namespace GolfAllApi.Controllers
     [Route("[controller]")]
     public class ProductosGolfController : ControllerBase
     {
-        // Lista estática para simular almacenamiento en memoria
-        private static List<ProductoGolf> _productos = new List<ProductoGolf>
+        private static readonly string _filePath = Path.Combine(Directory.GetCurrentDirectory(), "Data", "productos_golf.json");
+        private static List<ArticuloGolf> _productos = LoadProductos();
+
+        private static List<ArticuloGolf> LoadProductos()
         {
-            new ProductoGolf { Id = 1, Nombre = "Palo de golf Pro", Tipo = "Palo", Marca = "Callaway", ImagenUrl = "https://images.pexels.com/photos/1325668/pexels-photo-1325668.jpeg?auto=compress&w=400&q=80" },
-            new ProductoGolf { Id = 2, Nombre = "Bola Premium", Tipo = "Bola", Marca = "Titleist", ImagenUrl = "https://images.pexels.com/photos/1170777/pexels-photo-1170777.jpeg?auto=compress&w=400&q=80" },
-            new ProductoGolf { Id = 3, Nombre = "Guante Soft", Tipo = "Guante", Marca = "FootJoy", ImagenUrl = "https://images.pexels.com/photos/1324669/pexels-photo-1324669.jpeg?auto=compress&w=400&q=80" }
-        };
+            try
+            {
+                if (System.IO.File.Exists(_filePath))
+                {
+                    var json = System.IO.File.ReadAllText(_filePath);
+                    var productos = JsonSerializer.Deserialize<List<ArticuloGolf>>(json);
+                    if (productos != null && productos.Count > 0)
+                        return productos;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error cargando productos_golf.json: {ex.Message}");
+            }
+            // Si no existe el archivo o está vacío, usar los productos por defecto
+            return new List<ArticuloGolf>
+            {
+                new ArticuloGolf { Id = 1, Nombre = "Palo de golf Pro", Tipo = "Palo", Marca = "Callaway", ImagenUrl = "https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=400&q=80" },
+                new ArticuloGolf { Id = 2, Nombre = "Bola Premium", Tipo = "Bola", Marca = "Titleist", ImagenUrl = "https://images.unsplash.com/photo-1504609813440-554e64a8f005?auto=format&fit=crop&w=400&q=80" },
+                new ArticuloGolf { Id = 3, Nombre = "Guante Soft", Tipo = "Guante", Marca = "FootJoy", ImagenUrl = "https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80" }
+            };
+        }
+
+        private static void SaveProductos()
+        {
+            try
+            {
+                var json = JsonSerializer.Serialize(_productos, new JsonSerializerOptions { WriteIndented = true });
+                System.IO.File.WriteAllText(_filePath, json);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error guardando productos_golf.json: {ex.Message}");
+            }
+        }
 
         [HttpGet("catalogo")]
-        public IEnumerable<ProductoGolf> Catalogo()
+        public IEnumerable<ArticuloGolf> Catalogo()
         {
             return _productos;
         }
 
         [HttpPost("agregar")]
-        public ActionResult<ProductoGolf> AgregarProducto([FromBody] ProductoGolf nuevo)
+        public ActionResult<ArticuloGolf> AgregarProducto([FromBody] ArticuloGolf nuevo)
         {
+            Debug.WriteLine($"Llamada recibida en AgregarProducto: {nuevo?.Nombre} - {nuevo?.Tipo} - {nuevo?.Marca}");
             if (nuevo == null || string.IsNullOrWhiteSpace(nuevo.Nombre) || string.IsNullOrWhiteSpace(nuevo.Tipo) || string.IsNullOrWhiteSpace(nuevo.Marca))
                 return BadRequest("Datos inválidos");
             nuevo.Id = _productos.Any() ? _productos.Max(c => c.Id) + 1 : 1;
             // Asignar imagen según el tipo
             nuevo.ImagenUrl = nuevo.Tipo switch
             {
-                "Palo" => "https://images.pexels.com/photos/1325668/pexels-photo-1325668.jpeg?auto=compress&w=400&q=80",
-                "Bola" => "https://images.pexels.com/photos/1170777/pexels-photo-1170777.jpeg?auto=compress&w=400&q=80",
-                "Guante" => "https://images.pexels.com/photos/1324669/pexels-photo-1324669.jpeg?auto=compress&w=400&q=80",
+                "Palo" => "https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=400&q=80",
+                "Bola" => "https://images.unsplash.com/photo-1504609813440-554e64a8f005?auto=format&fit=crop&w=400&q=80",
+                "Guante" => "https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80",
                 _ => "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
             };
             _productos.Add(nuevo);
+            SaveProductos();
             return CreatedAtAction(nameof(Catalogo), new { id = nuevo.Id }, nuevo);
         }
 
@@ -48,6 +86,7 @@ namespace GolfAllApi.Controllers
             if (prod == null)
                 return NotFound();
             _productos.Remove(prod);
+            SaveProductos();
             return NoContent();
         }
 

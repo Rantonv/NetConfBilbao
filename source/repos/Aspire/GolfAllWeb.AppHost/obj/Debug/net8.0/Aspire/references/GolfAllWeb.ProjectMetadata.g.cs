@@ -7,5 +7,5 @@ namespace Projects;
 [global::System.Diagnostics.DebuggerDisplay("Type = {GetType().Name,nq}, ProjectPath = {ProjectPath}")]
 public class GolfAllWeb : global::Aspire.Hosting.IProjectMetadata
 {
-    public string ProjectPath => """C:\Users\rantonval\source\repos\GolfAllWeb\GolfAllWeb.csproj""";
+    public string ProjectPath => """C:\Proyectos\Raúl\BilbaoDemo\source\repos\GolfAllWeb\GolfAllWeb.csproj""";
 }

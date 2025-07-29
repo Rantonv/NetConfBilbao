@@ -18,14 +18,14 @@ using System.Reflection;
     "ls\\ext\\")]
 [assembly: System.Reflection.AssemblyMetadata("dcpbinpath", "C:\\Users\\rantonval\\.nuget\\packages\\aspire.hosting.orchestration.win-x64\\9.0.0\\too" +
     "ls\\ext\\bin\\")]
-[assembly: System.Reflection.AssemblyMetadata("apphostprojectpath", "C:\\Users\\rantonval\\source\\repos\\Aspire\\GolfAllWeb.AppHost")]
+[assembly: System.Reflection.AssemblyMetadata("apphostprojectpath", "C:\\Proyectos\\Raúl\\BilbaoDemo\\source\\repos\\Aspire\\GolfAllWeb.AppHost")]
 [assembly: System.Reflection.AssemblyMetadata("apphostprojectname", "GolfAllWeb.AppHost.csproj")]
 [assembly: System.Reflection.AssemblyMetadata("aspiredashboardpath", "C:\\Users\\rantonval\\.nuget\\packages\\aspire.dashboard.sdk.win-x64\\9.0.0\\tools\\Aspir" +
     "e.Dashboard.exe")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("GolfAllWeb.AppHost")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+626f292edcadb9a9c7ca92f1b7b7d1ecf851c106")]
 [assembly: System.Reflection.AssemblyProductAttribute("GolfAllWeb.AppHost")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GolfAllWeb.AppHost")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

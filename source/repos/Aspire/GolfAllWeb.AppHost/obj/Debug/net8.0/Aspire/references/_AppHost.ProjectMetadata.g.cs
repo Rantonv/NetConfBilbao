@@ -8,5 +8,5 @@ namespace Projects;
 public class GolfAllWeb_AppHost
 {
     private GolfAllWeb_AppHost() { }
-    public static string ProjectPath => """C:\Users\rantonval\source\repos\Aspire\GolfAllWeb.AppHost""";
+    public static string ProjectPath => """C:\Proyectos\Raúl\BilbaoDemo\source\repos\Aspire\GolfAllWeb.AppHost""";
 }

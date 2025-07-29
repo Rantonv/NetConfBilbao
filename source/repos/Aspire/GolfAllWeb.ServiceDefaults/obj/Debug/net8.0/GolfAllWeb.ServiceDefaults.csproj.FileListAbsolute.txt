@@ -10,3 +10,16 @@ C:\Users\rantonval\source\repos\Aspire\GolfAllWeb.ServiceDefaults\obj\Debug\net8
 C:\Users\rantonval\source\repos\Aspire\GolfAllWeb.ServiceDefaults\obj\Debug\net8.0\refint\GolfAllWeb.ServiceDefaults.dll
 C:\Users\rantonval\source\repos\Aspire\GolfAllWeb.ServiceDefaults\obj\Debug\net8.0\GolfAllWeb.ServiceDefaults.pdb
 C:\Users\rantonval\source\repos\Aspire\GolfAllWeb.ServiceDefaults\obj\Debug\net8.0\ref\GolfAllWeb.ServiceDefaults.dll
+C:\Proyectos\Raúl\BilbaoDemo\source\repos\Aspire\GolfAllWeb.ServiceDefaults\bin\Debug\net8.0\GolfAllWeb.ServiceDefaults.deps.json
+C:\Proyectos\Raúl\BilbaoDemo\source\repos\Aspire\GolfAllWeb.ServiceDefaults\bin\Debug\net8.0\GolfAllWeb.ServiceDefaults.dll
+C:\Proyectos\Raúl\BilbaoDemo\source\repos\Aspire\GolfAllWeb.ServiceDefaults\bin\Debug\net8.0\GolfAllWeb.ServiceDefaults.pdb
+C:\Proyectos\Raúl\BilbaoDemo\source\repos\Aspire\GolfAllWeb.ServiceDefaults\obj\Debug\net8.0\GolfAllWeb.ServiceDefaults.csproj.AssemblyReference.cache
+C:\Proyectos\Raúl\BilbaoDemo\source\repos\Aspire\GolfAllWeb.ServiceDefaults\obj\Debug\net8.0\GolfAllWeb.ServiceDefaults.GeneratedMSBuildEditorConfig.editorconfig
+C:\Proyectos\Raúl\BilbaoDemo\source\repos\Aspire\GolfAllWeb.ServiceDefaults\obj\Debug\net8.0\GolfAllWeb.ServiceDefaults.AssemblyInfoInputs.cache
+C:\Proyectos\Raúl\BilbaoDemo\source\repos\Aspire\GolfAllWeb.ServiceDefaults\obj\Debug\net8.0\GolfAllWeb.ServiceDefaults.AssemblyInfo.cs
+C:\Proyectos\Raúl\BilbaoDemo\source\repos\Aspire\GolfAllWeb.ServiceDefaults\obj\Debug\net8.0\GolfAllWeb.ServiceDefaults.csproj.CoreCompileInputs.cache
+C:\Proyectos\Raúl\BilbaoDemo\source\repos\Aspire\GolfAllWeb.ServiceDefaults\obj\Debug\net8.0\GolfAllWeb.ServiceDefaults.sourcelink.json
+C:\Proyectos\Raúl\BilbaoDemo\source\repos\Aspire\GolfAllWeb.ServiceDefaults\obj\Debug\net8.0\GolfAllWeb.ServiceDefaults.dll
+C:\Proyectos\Raúl\BilbaoDemo\source\repos\Aspire\GolfAllWeb.ServiceDefaults\obj\Debug\net8.0\refint\GolfAllWeb.ServiceDefaults.dll
+C:\Proyectos\Raúl\BilbaoDemo\source\repos\Aspire\GolfAllWeb.ServiceDefaults\obj\Debug\net8.0\GolfAllWeb.ServiceDefaults.pdb
+C:\Proyectos\Raúl\BilbaoDemo\source\repos\Aspire\GolfAllWeb.ServiceDefaults\obj\Debug\net8.0\ref\GolfAllWeb.ServiceDefaults.dll

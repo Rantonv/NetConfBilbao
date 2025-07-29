@@ -8,7 +8,7 @@ using System.Text;
 
 namespace ChucheriasWeb.Pages
 {
-    public class ProductoGolf
+    public class ArticuloGolf
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
@@ -19,7 +19,7 @@ namespace ChucheriasWeb.Pages
 
     public class ProductosGolfModel : PageModel
     {
-        public List<ProductoGolf> Catalogo { get; set; } = new();
+        public List<ArticuloGolf> Catalogo { get; set; } = new();
         public List<string> Tipos { get; set; } = new();
 
         [BindProperty]
@@ -38,10 +38,18 @@ namespace ChucheriasWeb.Pages
         public async Task<IActionResult> OnPostAgregarAsync()
         {
             using var client = new HttpClient();
-            var nuevo = new ProductoGolf { Nombre = NuevoNombre, Tipo = NuevoTipo, Marca = NuevaMarca };
+            var nuevo = new ArticuloGolf { Nombre = NuevoNombre, Tipo = NuevoTipo, Marca = NuevaMarca };
             var json = JsonSerializer.Serialize(nuevo);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            await client.PostAsync("https://localhost:7027/ProductosGolf/agregar", content);
+            var response = await client.PostAsync("https://localhost:7027/ProductosGolf/agregar", content);
+            if (!response.IsSuccessStatusCode)
+            {
+                // Puedes mostrar un mensaje de error en la página si lo deseas
+                ModelState.AddModelError(string.Empty, $"Error al agregar producto: {response.StatusCode}");
+                await CargarProductosAsync();
+                await CargarTiposAsync();
+                return Page();
+            }
             return RedirectToPage();
         }
 
@@ -59,17 +67,8 @@ namespace ChucheriasWeb.Pages
             if (response.IsSuccessStatusCode)
             {
                 var json = await response.Content.ReadAsStringAsync();
-                Catalogo = JsonSerializer.Deserialize<List<ProductoGolf>>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true }) ?? new();
-                foreach (var producto in Catalogo)
-                {
-                    producto.ImagenUrl = producto.Tipo switch
-                    {
-                        "Palo" => "https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=400&q=80",
-                        "Bola" => "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80",
-                        "Guante" => "https://images.unsplash.com/photo-1526178613658-3f1622045557?auto=format&fit=crop&w=400&q=80",
-                        _ => "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
-                    };
-                }
+                Catalogo = JsonSerializer.Deserialize<List<ArticuloGolf>>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true }) ?? new();
+                // Ya no sobrescribir ImagenUrl, usar la que viene del backend
             }
         }
 

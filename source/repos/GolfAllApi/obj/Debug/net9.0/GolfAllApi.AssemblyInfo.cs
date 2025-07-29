@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GolfAllApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+626f292edcadb9a9c7ca92f1b7b7d1ecf851c106")]
 [assembly: System.Reflection.AssemblyProductAttribute("GolfAllApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GolfAllApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
