@@ -2,7 +2,6 @@
 @model ChucheriasWeb.Pages.ProductosGolfModel
 @{
     ViewData["Title"] = "Material de Golf";
-    // Lista fija de categorías y sus imágenes
     var categoriasFijas = new List<(string Nombre, string Imagen)>
     {
         ("Palos", "https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80"),
@@ -47,6 +46,14 @@
         font-size: 1.3rem;
         margin-bottom: 0.5rem;
     }
+    .buscador-categorias {
+        max-width: 400px;
+        margin: 0 auto 2rem auto;
+    }
+    .buscador-productos {
+        max-width: 400px;
+        margin: 2rem auto 2rem auto;
+    }
     .producto-card {
         border: 2px solid #2e8b57;
         border-radius: 18px;
@@ -70,10 +77,14 @@
 <div class="container py-5">
     <h1 class="display-4 text-center mb-4">Catálogo de Material de Golf</h1>
 
-    <div class="row justify-content-center">
+    <div class="buscador-categorias">
+        <input id="buscadorCategorias" type="text" class="form-control form-control-lg" placeholder="Buscar categoría..." autocomplete="off" />
+    </div>
+
+    <div class="row justify-content-center" id="categorias-lista">
         @foreach (var cat in categoriasFijas)
         {
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch categoria-item">
                 <form method="get" asp-page="/ProductosGolf">
                     <input type="hidden" name="categoria" value="@cat.Nombre" />
                     <button type="submit" class="categoria-img-card w-100 p-0 border-0 bg-transparent">
@@ -87,11 +98,14 @@
 
     @if (Model.ProductosPorCategoria != null && Model.ProductosPorCategoria.Count > 0)
     {
-        <h2 class="mt-5 mb-4 text-center">Productos de la categoría seleccionada</h2>
-        <div class="row justify-content-center">
+        <div class="buscador-productos">
+            <input id="buscadorProductos" type="text" class="form-control form-control-lg" placeholder="Buscar producto por nombre, tipo o marca..." autocomplete="off" />
+        </div>
+        <h2 class="mt-3 mb-4 text-center">Productos de la categoría seleccionada</h2>
+        <div class="row justify-content-center" id="productos-lista">
             @foreach (var producto in Model.ProductosPorCategoria)
             {
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch producto-item">
                     <div class="producto-card w-100 h-100">
                         <img src="@producto.ImagenUrl" class="card-img-top" alt="@producto.Nombre" style="height: 180px; object-fit: cover; border-radius: 16px 16px 0 0;">
                         <div class="card-body">
@@ -105,3 +119,36 @@
         </div>
     }
 </div>
+
+@section Scripts {
+<script>
+(function() {
+    // Filtrado de categorías
+    var catInput = document.getElementById('buscadorCategorias');
+    if (catInput) {
+        catInput.addEventListener('input', function() {
+            var filtro = catInput.value.toLowerCase();
+            var items = document.querySelectorAll('.categoria-item');
+            items.forEach(function(item) {
+                var nombre = item.querySelector('.categoria-title').textContent.toLowerCase();
+                item.style.display = nombre.includes(filtro) ? '' : 'none';
+            });
+        });
+    }
+    // Filtrado de productos
+    var prodInput = document.getElementById('buscadorProductos');
+    if (prodInput) {
+        prodInput.addEventListener('input', function() {
+            var filtro = prodInput.value.toLowerCase();
+            var items = document.querySelectorAll('.producto-item');
+            items.forEach(function(item) {
+                var nombre = item.querySelector('.producto-title').textContent.toLowerCase();
+                var tipo = item.querySelector('.producto-tipo').textContent.toLowerCase();
+                var marca = item.querySelector('.producto-marca').textContent.toLowerCase();
+                item.style.display = (nombre.includes(filtro) || tipo.includes(filtro) || marca.includes(filtro)) ? '' : 'none';
+            });
+        });
+    }
+})();
+</script>
+}
