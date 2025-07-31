@@ -29,29 +29,17 @@
     .producto-marca {
         color: #b22222;
     }
+    .buscador {
+        max-width: 400px;
+        margin: 0 auto 2rem auto;
+    }
 </style>
 
 <div class="container py-5">
     <h1 class="display-4 text-center mb-4">Catálogo de Material de Golf</h1>
 
-    <div class="mb-5">
-        <h4>Agregar nuevo producto</h4>
-        <form method="post">
-            <div class="row g-2 align-items-center">
-                <div class="col-md-3">
-                    <input asp-for="NuevoNombre" class="form-control" placeholder="Nombre del producto" required />
-                </div>
-                <div class="col-md-3">
-                    <input asp-for="NuevoTipo" class="form-control" placeholder="Tipo (Palo, Bola, Guante...)" required />
-                </div>
-                <div class="col-md-3">
-                    <input asp-for="NuevaMarca" class="form-control" placeholder="Marca" required />
-                </div>
-                <div class="col-md-3">
-                    <button type="submit" asp-page-handler="Agregar" class="btn btn-success">Agregar</button>
-                </div>
-            </div>
-        </form>
+    <div class="buscador mb-4">
+        <input id="buscador" type="text" class="form-control form-control-lg" placeholder="Buscar producto por nombre, tipo o marca..." oninput="filtrarProductos()" autocomplete="off" />
     </div>
 
     <div class="mb-5">
@@ -64,7 +52,7 @@
         </ul>
     </div>
 
-    <div class="row">
+    <div class="row" id="productos-lista">
         @if (Model.Catalogo.Count == 0)
         {
             <div class="col-12 text-center">
@@ -75,7 +63,7 @@
         {
             @foreach (var producto in Model.Catalogo)
             {
-                <div class="col-md-4 mb-4">
+                <div class="col-md-4 mb-4 producto-item">
                     <div class="card producto-card h-100">
                         <img src="@producto.ImagenUrl" class="card-img-top" alt="@producto.Nombre" style="height: 200px; object-fit: cover; border-radius: 16px 16px 0 0;">
                         <div class="card-body">
@@ -92,3 +80,24 @@
         }
     </div>
 </div>
+
+@section Scripts {
+<script>
+function filtrarProductos() {
+    var input = document.getElementById('buscador');
+    var filtro = input.value.toLowerCase();
+    var items = document.getElementsByClassName('producto-item');
+    for (var i = 0; i < items.length; i++) {
+        var item = items[i];
+        var nombre = item.querySelector('.producto-title').textContent.toLowerCase();
+        var tipo = item.querySelector('.producto-tipo').textContent.toLowerCase();
+        var marca = item.querySelector('.producto-marca').textContent.toLowerCase();
+        if (nombre.includes(filtro) || tipo.includes(filtro) || marca.includes(filtro)) {
+            item.style.display = '';
+        } else {
+            item.style.display = 'none';
+        }
+    }
+}
+</script>
+}

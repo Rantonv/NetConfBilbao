@@ -22,35 +22,10 @@ namespace ChucheriasWeb.Pages
         public List<ArticuloGolf> Catalogo { get; set; } = new();
         public List<string> Tipos { get; set; } = new();
 
-        [BindProperty]
-        public string NuevoNombre { get; set; }
-        [BindProperty]
-        public string NuevoTipo { get; set; }
-        [BindProperty]
-        public string NuevaMarca { get; set; }
-
         public async Task OnGetAsync()
         {
             await CargarProductosAsync();
             await CargarTiposAsync();
-        }
-
-        public async Task<IActionResult> OnPostAgregarAsync()
-        {
-            using var client = new HttpClient();
-            var nuevo = new ArticuloGolf { Nombre = NuevoNombre, Tipo = NuevoTipo, Marca = NuevaMarca };
-            var json = JsonSerializer.Serialize(nuevo);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await client.PostAsync("https://localhost:7027/ProductosGolf/agregar", content);
-            if (!response.IsSuccessStatusCode)
-            {
-                // Puedes mostrar un mensaje de error en la página si lo deseas
-                ModelState.AddModelError(string.Empty, $"Error al agregar producto: {response.StatusCode}");
-                await CargarProductosAsync();
-                await CargarTiposAsync();
-                return Page();
-            }
-            return RedirectToPage();
         }
 
         public async Task<IActionResult> OnPostEliminarAsync(int id)
