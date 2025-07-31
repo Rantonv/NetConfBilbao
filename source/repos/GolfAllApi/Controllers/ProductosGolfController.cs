@@ -12,41 +12,6 @@ namespace GolfAllApi.Controllers
     [Route("[controller]")]
     public class ProductosGolfController : ControllerBase
     {
-        // Diccionario de productos por categoría
-        private static readonly Dictionary<string, List<ArticuloGolf>> _productosPorCategoria = new()
-        {
-            ["Palos"] = new List<ArticuloGolf>
-            {
-                new ArticuloGolf { Id = 1, Nombre = "Palo de golf Pro", Tipo = "Palos", Marca = "Callaway", ImagenUrl = "https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80" },
-                new ArticuloGolf { Id = 2, Nombre = "Palo de golf Avanzado", Tipo = "Palos", Marca = "TaylorMade", ImagenUrl = "https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80" }
-            },
-            ["Bolas"] = new List<ArticuloGolf>
-            {
-                new ArticuloGolf { Id = 3, Nombre = "Bola Premium", Tipo = "Bolas", Marca = "Titleist", ImagenUrl = "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" },
-                new ArticuloGolf { Id = 4, Nombre = "Bola Soft", Tipo = "Bolas", Marca = "Srixon", ImagenUrl = "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" }
-            },
-            ["Bolsas"] = new List<ArticuloGolf>
-            {
-                new ArticuloGolf { Id = 5, Nombre = "Bolsa Stand", Tipo = "Bolsas", Marca = "Ping", ImagenUrl = "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" }
-            },
-            ["Ropa"] = new List<ArticuloGolf>
-            {
-                new ArticuloGolf { Id = 6, Nombre = "Polo Golf", Tipo = "Ropa", Marca = "Nike", ImagenUrl = "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80" }
-            },
-            ["Accesorios"] = new List<ArticuloGolf>
-            {
-                new ArticuloGolf { Id = 7, Nombre = "Guante Soft", Tipo = "Accesorios", Marca = "FootJoy", ImagenUrl = "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" }
-            }
-        };
-
-        [HttpGet("porcategoria/{categoria}")]
-        public ActionResult<IEnumerable<ArticuloGolf>> GetPorCategoria(string categoria)
-        {
-            if (_productosPorCategoria.TryGetValue(categoria, out var productos))
-                return Ok(productos);
-            return Ok(new List<ArticuloGolf>());
-        }
-
         private static readonly string _filePath = Path.Combine(Directory.GetCurrentDirectory(), "Data", "productos_golf.json");
         private static List<ArticuloGolf> _productos = LoadProductos();
 

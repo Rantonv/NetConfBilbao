@@ -21,26 +21,57 @@ namespace ChucheriasWeb.Pages
     public class ProductosGolfModel : PageModel
     {
         public List<ArticuloGolf> Catalogo { get; set; } = new();
-        public List<string> CategoriasFijas { get; set; } = new() { "Palos", "Bolas", "Bolsas", "Ropa", "Accesorios" };
-        public List<ArticuloGolf> ProductosPorCategoria { get; set; } = new();
+        public List<string> Tipos { get; set; } = new();
 
-        public async Task<IActionResult> OnGetAsync(string categoria = null)
+        [BindProperty(SupportsGet = true)]
+        public string SearchTerm { get; set; }
+
+        public async Task OnGetAsync()
         {
-            if (!string.IsNullOrEmpty(categoria))
-            {
-                await CargarProductosPorCategoriaAsync(categoria);
-            }
-            return Page();
+            await CargarProductosAsync();
+            await CargarTiposAsync();
+            FiltrarCatalogo();
         }
 
-        private async Task CargarProductosPorCategoriaAsync(string categoria)
+        public async Task<IActionResult> OnPostEliminarAsync(int id)
         {
             using var client = new HttpClient();
-            var response = await client.GetAsync($"https://localhost:7027/ProductosGolf/porcategoria/{categoria}");
+            await client.DeleteAsync($"https://localhost:7027/ProductosGolf/eliminar/{id}");
+            return RedirectToPage(new { SearchTerm });
+        }
+
+        private async Task CargarProductosAsync()
+        {
+            using var client = new HttpClient();
+            var response = await client.GetAsync("https://localhost:7027/ProductosGolf/catalogo");
             if (response.IsSuccessStatusCode)
             {
                 var json = await response.Content.ReadAsStringAsync();
-                ProductosPorCategoria = JsonSerializer.Deserialize<List<ArticuloGolf>>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true }) ?? new();
+                Catalogo = JsonSerializer.Deserialize<List<ArticuloGolf>>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true }) ?? new();
+            }
+        }
+
+        private async Task CargarTiposAsync()
+        {
+            using var client = new HttpClient();
+            var response = await client.GetAsync("https://localhost:7027/ProductosGolf/tipos");
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                Tipos = JsonSerializer.Deserialize<List<string>>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true }) ?? new();
+            }
+        }
+
+        private void FiltrarCatalogo()
+        {
+            if (!string.IsNullOrWhiteSpace(SearchTerm))
+            {
+                var term = SearchTerm.ToLowerInvariant();
+                Catalogo = Catalogo.Where(p =>
+                    (!string.IsNullOrEmpty(p.Nombre) && p.Nombre.ToLowerInvariant().Contains(term)) ||
+                    (!string.IsNullOrEmpty(p.Tipo) && p.Tipo.ToLowerInvariant().Contains(term)) ||
+                    (!string.IsNullOrEmpty(p.Marca) && p.Marca.ToLowerInvariant().Contains(term))
+                ).ToList();
             }
         }
     }
