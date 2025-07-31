@@ -2,11 +2,50 @@
 @model ChucheriasWeb.Pages.ProductosGolfModel
 @{
     ViewData["Title"] = "Material de Golf";
+    // Lista fija de categorías y sus imágenes
+    var categoriasFijas = new List<(string Nombre, string Imagen)>
+    {
+        ("Palos", "https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80"),
+        ("Bolas", "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"),
+        ("Bolsas", "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80"),
+        ("Ropa", "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80"),
+        ("Accesorios", "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80")
+    };
 }
 
 <style>
     body {
         background: linear-gradient(135deg, #b2f7ef 0%, #f7d6e0 100%);
+    }
+    .categoria-img-card {
+        border: 2px solid #2e8b57;
+        border-radius: 18px;
+        box-shadow: 0 4px 16px rgba(46, 139, 87, 0.15);
+        background: #f8fff8;
+        transition: transform 0.2s;
+        text-align: center;
+        padding: 1rem 0 0.5rem 0;
+        margin-bottom: 2rem;
+        height: 100%;
+        cursor: pointer;
+    }
+    .categoria-img-card:hover {
+        transform: scale(1.04);
+        box-shadow: 0 8px 24px rgba(46, 139, 87, 0.25);
+    }
+    .categoria-img {
+        width: 100%;
+        max-width: 220px;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 16px 16px 0 0;
+        margin-bottom: 1rem;
+    }
+    .categoria-title {
+        color: #2e8b57;
+        font-weight: bold;
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
     }
     .producto-card {
         border: 2px solid #2e8b57;
@@ -14,10 +53,7 @@
         box-shadow: 0 4px 16px rgba(46, 139, 87, 0.15);
         background: #f8fff8;
         transition: transform 0.2s;
-    }
-    .producto-card:hover {
-        transform: scale(1.04);
-        box-shadow: 0 8px 24px rgba(46, 139, 87, 0.25);
+        margin-bottom: 2rem;
     }
     .producto-title {
         color: #2e8b57;
@@ -29,75 +65,43 @@
     .producto-marca {
         color: #b22222;
     }
-    .buscador {
-        max-width: 400px;
-        margin: 0 auto 2rem auto;
-    }
 </style>
 
 <div class="container py-5">
     <h1 class="display-4 text-center mb-4">Catálogo de Material de Golf</h1>
 
-    <div class="buscador mb-4">
-        <input id="buscador" type="text" class="form-control form-control-lg" placeholder="Buscar producto por nombre, tipo o marca..." oninput="filtrarProductos()" autocomplete="off" />
-    </div>
-
-    <div class="mb-5">
-        <h4>Tipos de productos disponibles</h4>
-        <ul class="list-inline">
-            @foreach (var tipo in Model.Tipos)
-            {
-                <li class="list-inline-item badge bg-success text-light p-2 m-1">@tipo</li>
-            }
-        </ul>
-    </div>
-
-    <div class="row" id="productos-lista">
-        @if (Model.Catalogo.Count == 0)
+    <div class="row justify-content-center">
+        @foreach (var cat in categoriasFijas)
         {
-            <div class="col-12 text-center">
-                <p class="lead">No hay productos disponibles.</p>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
+                <form method="get" asp-page="/ProductosGolf">
+                    <input type="hidden" name="categoria" value="@cat.Nombre" />
+                    <button type="submit" class="categoria-img-card w-100 p-0 border-0 bg-transparent">
+                        <img class="categoria-img" src="@cat.Imagen" alt="@cat.Nombre" />
+                        <div class="categoria-title">@cat.Nombre</div>
+                    </button>
+                </form>
             </div>
         }
-        else
-        {
-            @foreach (var producto in Model.Catalogo)
+    </div>
+
+    @if (Model.ProductosPorCategoria != null && Model.ProductosPorCategoria.Count > 0)
+    {
+        <h2 class="mt-5 mb-4 text-center">Productos de la categoría seleccionada</h2>
+        <div class="row justify-content-center">
+            @foreach (var producto in Model.ProductosPorCategoria)
             {
-                <div class="col-md-4 mb-4 producto-item">
-                    <div class="card producto-card h-100">
-                        <img src="@producto.ImagenUrl" class="card-img-top" alt="@producto.Nombre" style="height: 200px; object-fit: cover; border-radius: 16px 16px 0 0;">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
+                    <div class="producto-card w-100 h-100">
+                        <img src="@producto.ImagenUrl" class="card-img-top" alt="@producto.Nombre" style="height: 180px; object-fit: cover; border-radius: 16px 16px 0 0;">
                         <div class="card-body">
                             <h5 class="card-title producto-title">@producto.Nombre</h5>
                             <p class="card-text producto-tipo">Tipo: @producto.Tipo</p>
                             <p class="card-text producto-marca">Marca: @producto.Marca</p>
-                            <form method="post">
-                                <button type="submit" asp-page-handler="Eliminar" asp-route-id="@producto.Id" class="btn btn-danger btn-sm mt-2">Eliminar</button>
-                            </form>
                         </div>
                     </div>
                 </div>
             }
-        }
-    </div>
-</div>
-
-@section Scripts {
-<script>
-function filtrarProductos() {
-    var input = document.getElementById('buscador');
-    var filtro = input.value.toLowerCase();
-    var items = document.getElementsByClassName('producto-item');
-    for (var i = 0; i < items.length; i++) {
-        var item = items[i];
-        var nombre = item.querySelector('.producto-title').textContent.toLowerCase();
-        var tipo = item.querySelector('.producto-tipo').textContent.toLowerCase();
-        var marca = item.querySelector('.producto-marca').textContent.toLowerCase();
-        if (nombre.includes(filtro) || tipo.includes(filtro) || marca.includes(filtro)) {
-            item.style.display = '';
-        } else {
-            item.style.display = 'none';
-        }
+        </div>
     }
-}
-</script>
-}
+</div>

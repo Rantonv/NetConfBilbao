@@ -5,6 +5,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace ChucheriasWeb.Pages
 {
@@ -20,41 +21,26 @@ namespace ChucheriasWeb.Pages
     public class ProductosGolfModel : PageModel
     {
         public List<ArticuloGolf> Catalogo { get; set; } = new();
-        public List<string> Tipos { get; set; } = new();
+        public List<string> CategoriasFijas { get; set; } = new() { "Palos", "Bolas", "Bolsas", "Ropa", "Accesorios" };
+        public List<ArticuloGolf> ProductosPorCategoria { get; set; } = new();
 
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync(string categoria = null)
         {
-            await CargarProductosAsync();
-            await CargarTiposAsync();
-        }
-
-        public async Task<IActionResult> OnPostEliminarAsync(int id)
-        {
-            using var client = new HttpClient();
-            await client.DeleteAsync($"https://localhost:7027/ProductosGolf/eliminar/{id}");
-            return RedirectToPage();
-        }
-
-        private async Task CargarProductosAsync()
-        {
-            using var client = new HttpClient();
-            var response = await client.GetAsync("https://localhost:7027/ProductosGolf/catalogo");
-            if (response.IsSuccessStatusCode)
+            if (!string.IsNullOrEmpty(categoria))
             {
-                var json = await response.Content.ReadAsStringAsync();
-                Catalogo = JsonSerializer.Deserialize<List<ArticuloGolf>>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true }) ?? new();
-                // Ya no sobrescribir ImagenUrl, usar la que viene del backend
+                await CargarProductosPorCategoriaAsync(categoria);
             }
+            return Page();
         }
 
-        private async Task CargarTiposAsync()
+        private async Task CargarProductosPorCategoriaAsync(string categoria)
         {
             using var client = new HttpClient();
-            var response = await client.GetAsync("https://localhost:7027/ProductosGolf/tipos");
+            var response = await client.GetAsync($"https://localhost:7027/ProductosGolf/porcategoria/{categoria}");
             if (response.IsSuccessStatusCode)
             {
                 var json = await response.Content.ReadAsStringAsync();
-                Tipos = JsonSerializer.Deserialize<List<string>>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true }) ?? new();
+                ProductosPorCategoria = JsonSerializer.Deserialize<List<ArticuloGolf>>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true }) ?? new();
             }
         }
     }
