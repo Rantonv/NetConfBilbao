@@ -1,10 +1,7 @@
-using Microsoft.AspNetCore.Mvc;
 using GolfAllApi.Models;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.Json;
-using System.IO;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Text.Json;
 
 namespace GolfAllApi.Controllers
 {
@@ -41,9 +38,9 @@ namespace GolfAllApi.Controllers
             // Si no existe el archivo o está vacío, usar los productos por defecto
             return new List<ArticuloGolf>
             {
-                new ArticuloGolf { Id = 1, Nombre = "Palo de golf Pro", Tipo = "Palo", Marca = "Callaway" },
-                new ArticuloGolf { Id = 2, Nombre = "Bola Premium", Tipo = "Bola", Marca = "Titleist" },
-                new ArticuloGolf { Id = 3, Nombre = "Guante Soft", Tipo = "Guante", Marca = "FootJoy" }
+                new ArticuloGolf { Id = 1, Nombre = "Palo de golf Pro", Tipo = "Palo", Marca = "Callaway", ImagenUrl = "https://images.unsplash.com/photo-1562204320-c7f5f2a04156?q=80&w=1170&auto=format&fit=crop" },
+                new ArticuloGolf { Id = 2, Nombre = "Bola Premium", Tipo = "Bola", Marca = "Titleist", ImagenUrl = "https://images.unsplash.com/photo-1703293024102-44224053a305?q=80&w=1261&auto=format&fit=crop"},
+                new ArticuloGolf { Id = 3, Nombre = "Guante Soft", Tipo = "Guante", Marca = "FootJoy", ImagenUrl = "https://images.unsplash.com/photo-1689323473750-75520243edcb?q=80&w=1332&auto=format&fit=crop"}
             };
         }
 
