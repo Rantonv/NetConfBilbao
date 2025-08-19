@@ -1,0 +1,44 @@
+[
+  {
+    "Id": 1,
+    "Nombre": "Palo de golf Pro",
+    "Tipo": "Palo",
+    "Marca": "Callaway",
+    "ImagenUrl": "https://images.unsplash.com/photo-1562204320-c7f5f2a04156?q=80&w=1170&auto=format&fit=crop"
+  },
+  {
+    "Id": 2,
+    "Nombre": "Bola Premium",
+    "Tipo": "Bola",
+    "Marca": "Titleist",
+    "ImagenUrl": "https://images.unsplash.com/photo-1703293024102-44224053a305?q=80&w=1261&auto=format&fit=crop"
+  },
+  {
+    "Id": 3,
+    "Nombre": "Guante Soft",
+    "Tipo": "Accesorio",
+    "Marca": "FootJoy",
+    "ImagenUrl": "https://images.unsplash.com/photo-1689323473750-75520243edcb?q=80&w=1332&auto=format&fit=crop"
+  },
+  {
+    "Id": 4,
+    "Nombre": "Bolsa Tour",
+    "Tipo": "Bolsa",
+    "Marca": "TaylorMade",
+    "ImagenUrl": "https://images.unsplash.com/photo-1713728920047-45c7d1a51f1c?q=80&w=687&auto=format&fit=crop"
+  },
+  {
+    "Id": 5,
+    "Nombre": "Polo DryFit",
+    "Tipo": "Ropa",
+    "Marca": "Nike",
+    "ImagenUrl": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=80&q=80"
+  },
+  {
+    "Id": 6,
+    "Nombre": "Visera Classic",
+    "Tipo": "Accesorio",
+    "Marca": "Adidas",
+    "ImagenUrl": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=80&q=80"
+  }
+]

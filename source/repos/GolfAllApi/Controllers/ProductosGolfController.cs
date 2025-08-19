@@ -94,5 +94,14 @@ namespace GolfAllApi.Controllers
             var tipos = _productos.Select(c => c.Tipo).Distinct().ToList();
             return Ok(tipos);
         }
+
+        [HttpGet("catalogo/tipo/{tipo}")]
+        public ActionResult<IEnumerable<ArticuloGolf>> CatalogoPorTipo(string tipo)
+        {
+            if (string.IsNullOrWhiteSpace(tipo))
+                return BadRequest("Tipo inválido");
+            var productosFiltrados = _productos.Where(p => p.Tipo.Equals(tipo, StringComparison.OrdinalIgnoreCase)).ToList();
+            return Ok(productosFiltrados);
+        }
     }
 }
