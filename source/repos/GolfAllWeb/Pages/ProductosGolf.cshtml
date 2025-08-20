@@ -62,24 +62,12 @@
 </style>
 
 <div class="container py-5">
-    <h1 class="display-4 text-center mb-4">Catálogo de Material de Golf</h1>
+    @* <h1 class="display-4 text-center mb-4">Catï¿½logo de Material de Golf</h1> *@
 
-    <div class="mb-4">
-        <form method="get" class="row g-2 justify-content-center">
-            <div class="col-md-8">
-                <input type="text" name="SearchTerm" value="@Model.SearchTerm" class="form-control" placeholder="Buscar por nombre, tipo o marca..." autocomplete="off" />
-            </div>
-            @if (!string.IsNullOrWhiteSpace(Model.SearchTerm))
-            {
-                <div class="col-md-2">
-                    <a href="@Url.Page(null, null, null, null)" class="btn btn-outline-secondary w-100">Limpiar</a>
-                </div>
-            }
-        </form>
-    </div>
+    
 
     <div class="mb-5">
-        <h4>Tipos de productos disponibles</h4>
+        @* <h4>Tipos de productos disponibles</h4> *@
         <div class="d-flex flex-wrap gap-3 justify-content-center">
             <div class="tipo-card text-center p-2" data-tipo="Palo">
                 <img src="https://images.unsplash.com/photo-1633499997515-e873f5917e56?q=80&w=1170&auto=format&fit=crop" alt="Palos" class="tipo-img mb-1" />
@@ -102,10 +90,24 @@
                 <div>Accesorios</div>
             </div>
             <div class="tipo-card text-center p-2" data-tipo="">
-                <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80" alt="Todos" class="tipo-img mb-1" />
+                <img src="https://images.unsplash.com/photo-1561251224-e393160cd769?q=80&w=1170&auto=format&fit=crop" alt="Todos" class="tipo-img mb-1" />
                 <div>Todos</div>
             </div>
         </div>
+    </div>
+
+    <div class="mb-4"></div>
+        <form method="get" class="row g-2 justify-content-center">
+            <div class="col-md-8">
+                <input type="text" name="SearchTerm" value="@Model.SearchTerm" class="form-control" placeholder="Buscar por nombre, tipo o marca..." autocomplete="off" />
+            </div>
+            @if (!string.IsNullOrWhiteSpace(Model.SearchTerm))
+            {
+                <div class="col-md-2">
+                    <a href="@Url.Page(null, null, null, null)" class="btn btn-outline-secondary w-100">Limpiar</a>
+                </div>
+            }
+        </form>
     </div>
 
     <div id="productos-lista" class="row">
