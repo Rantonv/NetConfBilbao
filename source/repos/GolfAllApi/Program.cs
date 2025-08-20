@@ -1,23 +1,19 @@
 var builder = WebApplication.CreateBuilder(args);
 
-// Add service defaults & Aspire client integrations.
-builder.AddServiceDefaults();
+// Servicios necesarios para Swagger
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
-// Add services to the container.
-builder.Services.AddProblemDetails();
+// Otros servicios
+builder.Services.AddControllers();
+builder.Services.AddRazorPages();
 
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
-builder.Services.AddAuthorization();
-builder.Services.AddRazorPages(); // Registrar Razor Pages
-builder.Services.AddControllers(); // Registrar controladores
-
-// Habilitar CORS para permitir peticiones desde cualquier origen (solo para desarrollo)
+// Configuración CORS
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
     {
-        policy.AllowAnyOrigin()
+        policy.WithOrigins("https://localhost:7206", "http://localhost:5274")
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
@@ -25,21 +21,22 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Middleware de Swagger (normalmente solo en desarrollo)
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.UseRouting();
 
-app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+app.UseCors(); // <-- Aquí
 
 app.UseAuthorization();
 
-app.MapRazorPages(); // Usar Razor Pages
-app.MapControllers(); // Mapear controladores
-
-app.MapDefaultEndpoints();
+app.MapControllers();
+app.MapRazorPages();
 
 app.Run();

@@ -11,14 +11,18 @@ namespace GolfAllApi.Controllers
     {
         private readonly ILogger<ProductosGolfController> _logger;
         private static readonly string _filePath = Path.Combine(Directory.GetCurrentDirectory(), "Data", "productos_golf.json");
-        private static List<ArticuloGolf> _productos = LoadProductos();
+        private static List<ArticuloGolf> _productos;
 
         public ProductosGolfController(ILogger<ProductosGolfController> logger)
         {
             _logger = logger;
+            if (_productos == null)
+            {
+                _productos = LoadProductos();
+            }
         }
 
-        private static List<ArticuloGolf> LoadProductos()
+        private  List<ArticuloGolf> LoadProductos()
         {
             try
             {
@@ -33,13 +37,15 @@ namespace GolfAllApi.Controllers
                         {
                             p.ImagenUrl = "https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80";
                         }
+                        _logger.LogInformation("Productos cargados correctamente");
                         return productos;
                     }
                 }
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"Error cargando productos_golf.json: {ex.Message}");
+                _logger.LogError("Error cargando productos");
+               Debug.WriteLine($"Error cargando productos_golf.json: {ex.Message}");
             }
             // Si no existe el archivo o está vacío, usar los productos por defecto
             return new List<ArticuloGolf>
