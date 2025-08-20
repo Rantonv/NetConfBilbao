@@ -9,8 +9,14 @@ namespace GolfAllApi.Controllers
     [Route("[controller]")]
     public class ProductosGolfController : ControllerBase
     {
+        private readonly ILogger<ProductosGolfController> _logger;
         private static readonly string _filePath = Path.Combine(Directory.GetCurrentDirectory(), "Data", "productos_golf.json");
         private static List<ArticuloGolf> _productos = LoadProductos();
+
+        public ProductosGolfController(ILogger<ProductosGolfController> logger)
+        {
+            _logger = logger;
+        }
 
         private static List<ArticuloGolf> LoadProductos()
         {
@@ -60,6 +66,7 @@ namespace GolfAllApi.Controllers
         [HttpGet("catalogo")]
         public IEnumerable<ArticuloGolf> Catalogo()
         {
+            _logger.LogInformation("Llamada a Catalogo");
             return _productos;
         }
 

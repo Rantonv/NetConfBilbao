@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\GolfAllApi\GolfAllApi.csproj" />
     <ProjectReference Include="..\..\GolfAllWeb\GolfAllWeb.csproj" />
   </ItemGroup>
 

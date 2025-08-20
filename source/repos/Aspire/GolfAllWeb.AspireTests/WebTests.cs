@@ -1,4 +1,4 @@
-namespace GFSWeb.AspireTests;
+namespace GolfAllWeb.AspireTests;
 
 [TestClass]
 public class WebTests

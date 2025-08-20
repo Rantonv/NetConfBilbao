@@ -8,4 +8,8 @@
     <RootNamespace>GolfAllWeb</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Aspire\GolfAllWeb.ServiceDefaults\GolfAllWeb.ServiceDefaults.csproj" />
+  </ItemGroup>
+
 </Project>
