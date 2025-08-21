@@ -2,10 +2,12 @@
 
 namespace Projects;
 
+#pragma warning disable CS8981 // The type name only contains lower-cased ascii characters. Such names may become reserved for the language.
 [global::System.CodeDom.Compiler.GeneratedCode("Aspire.Hosting", null)]
 [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage(Justification = "Generated code.")]
 [global::System.Diagnostics.DebuggerDisplay("Type = {GetType().Name,nq}, ProjectPath = {ProjectPath}")]
 public class GolfAllWeb : global::Aspire.Hosting.IProjectMetadata
+#pragma warning restore CS8981
 {
-    public string ProjectPath => """C:\Proyectos\Raúl\BilbaoDemo\source\repos\GolfAllWeb\GolfAllWeb.csproj""";
+    public string ProjectPath => """c:\Users\doliva\source\repos\GitHub\Rantonv\NetConfBilbao\source\repos\GolfAllWeb\GolfAllWeb.csproj""";
 }

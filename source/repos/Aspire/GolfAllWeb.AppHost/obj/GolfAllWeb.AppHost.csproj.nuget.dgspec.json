@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Proyectos\\Raúl\\BilbaoDemo\\source\\repos\\Aspire\\GolfAllWeb.AppHost\\GolfAllWeb.AppHost.csproj": {}
+    "c:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\Aspire\\GolfAllWeb.AppHost\\GolfAllWeb.AppHost.csproj": {}
   },
   "projects": {
-    "C:\\Proyectos\\Raúl\\BilbaoDemo\\source\\repos\\Aspire\\GolfAllWeb.AppHost\\GolfAllWeb.AppHost.csproj": {
+    "c:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\Aspire\\GolfAllWeb.AppHost\\GolfAllWeb.AppHost.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Proyectos\\Raúl\\BilbaoDemo\\source\\repos\\Aspire\\GolfAllWeb.AppHost\\GolfAllWeb.AppHost.csproj",
+        "projectUniqueName": "c:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\Aspire\\GolfAllWeb.AppHost\\GolfAllWeb.AppHost.csproj",
         "projectName": "GolfAllWeb.AppHost",
-        "projectPath": "C:\\Proyectos\\Raúl\\BilbaoDemo\\source\\repos\\Aspire\\GolfAllWeb.AppHost\\GolfAllWeb.AppHost.csproj",
-        "packagesPath": "C:\\Users\\rantonval\\.nuget\\packages\\",
-        "outputPath": "C:\\Proyectos\\Raúl\\BilbaoDemo\\source\\repos\\Aspire\\GolfAllWeb.AppHost\\obj\\",
+        "projectPath": "c:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\Aspire\\GolfAllWeb.AppHost\\GolfAllWeb.AppHost.csproj",
+        "packagesPath": "C:\\Users\\doliva\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\Aspire\\GolfAllWeb.AppHost\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\rantonval\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\doliva\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -25,6 +25,7 @@
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -51,16 +52,16 @@
           "dependencies": {
             "Aspire.Dashboard.Sdk.win-x64": {
               "target": "Package",
-              "version": "[9.0.0, )",
+              "version": "[9.4.1, )",
               "autoReferenced": true
             },
             "Aspire.Hosting.AppHost": {
               "target": "Package",
-              "version": "[9.0.0, )"
+              "version": "[9.4.1, )"
             },
             "Aspire.Hosting.Orchestration.win-x64": {
               "target": "Package",
-              "version": "[9.0.0, )",
+              "version": "[9.4.1, )",
               "autoReferenced": true
             }
           },
@@ -80,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

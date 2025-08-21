@@ -23,3 +23,16 @@ C:\Proyectos\Raúl\BilbaoDemo\source\repos\Aspire\GolfAllWeb.ServiceDefaults\obj
 C:\Proyectos\Raúl\BilbaoDemo\source\repos\Aspire\GolfAllWeb.ServiceDefaults\obj\Debug\net8.0\refint\GolfAllWeb.ServiceDefaults.dll
 C:\Proyectos\Raúl\BilbaoDemo\source\repos\Aspire\GolfAllWeb.ServiceDefaults\obj\Debug\net8.0\GolfAllWeb.ServiceDefaults.pdb
 C:\Proyectos\Raúl\BilbaoDemo\source\repos\Aspire\GolfAllWeb.ServiceDefaults\obj\Debug\net8.0\ref\GolfAllWeb.ServiceDefaults.dll
+C:\Users\doliva\source\repos\GitHub\Rantonv\NetConfBilbao\source\repos\Aspire\GolfAllWeb.ServiceDefaults\bin\Debug\net8.0\GolfAllWeb.ServiceDefaults.deps.json
+C:\Users\doliva\source\repos\GitHub\Rantonv\NetConfBilbao\source\repos\Aspire\GolfAllWeb.ServiceDefaults\bin\Debug\net8.0\GolfAllWeb.ServiceDefaults.dll
+C:\Users\doliva\source\repos\GitHub\Rantonv\NetConfBilbao\source\repos\Aspire\GolfAllWeb.ServiceDefaults\bin\Debug\net8.0\GolfAllWeb.ServiceDefaults.pdb
+C:\Users\doliva\source\repos\GitHub\Rantonv\NetConfBilbao\source\repos\Aspire\GolfAllWeb.ServiceDefaults\obj\Debug\net8.0\GolfAllWeb.ServiceDefaults.csproj.AssemblyReference.cache
+C:\Users\doliva\source\repos\GitHub\Rantonv\NetConfBilbao\source\repos\Aspire\GolfAllWeb.ServiceDefaults\obj\Debug\net8.0\GolfAllWeb.ServiceDefaults.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\doliva\source\repos\GitHub\Rantonv\NetConfBilbao\source\repos\Aspire\GolfAllWeb.ServiceDefaults\obj\Debug\net8.0\GolfAllWeb.ServiceDefaults.AssemblyInfoInputs.cache
+C:\Users\doliva\source\repos\GitHub\Rantonv\NetConfBilbao\source\repos\Aspire\GolfAllWeb.ServiceDefaults\obj\Debug\net8.0\GolfAllWeb.ServiceDefaults.AssemblyInfo.cs
+C:\Users\doliva\source\repos\GitHub\Rantonv\NetConfBilbao\source\repos\Aspire\GolfAllWeb.ServiceDefaults\obj\Debug\net8.0\GolfAllWeb.ServiceDefaults.csproj.CoreCompileInputs.cache
+C:\Users\doliva\source\repos\GitHub\Rantonv\NetConfBilbao\source\repos\Aspire\GolfAllWeb.ServiceDefaults\obj\Debug\net8.0\GolfAllWeb.ServiceDefaults.sourcelink.json
+C:\Users\doliva\source\repos\GitHub\Rantonv\NetConfBilbao\source\repos\Aspire\GolfAllWeb.ServiceDefaults\obj\Debug\net8.0\GolfAllWeb.ServiceDefaults.dll
+C:\Users\doliva\source\repos\GitHub\Rantonv\NetConfBilbao\source\repos\Aspire\GolfAllWeb.ServiceDefaults\obj\Debug\net8.0\refint\GolfAllWeb.ServiceDefaults.dll
+C:\Users\doliva\source\repos\GitHub\Rantonv\NetConfBilbao\source\repos\Aspire\GolfAllWeb.ServiceDefaults\obj\Debug\net8.0\GolfAllWeb.ServiceDefaults.pdb
+C:\Users\doliva\source\repos\GitHub\Rantonv\NetConfBilbao\source\repos\Aspire\GolfAllWeb.ServiceDefaults\obj\Debug\net8.0\ref\GolfAllWeb.ServiceDefaults.dll

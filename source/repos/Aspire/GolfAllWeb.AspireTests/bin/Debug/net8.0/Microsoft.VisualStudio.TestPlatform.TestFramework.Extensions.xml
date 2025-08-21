@@ -46,6 +46,52 @@
             Gets the path of the directory to which the item is copied.
             </summary>
         </member>
+        <member name="T:Microsoft.VisualStudio.TestTools.UnitTesting.MessageLevel">
+            <summary>
+            Specifies the severity level of messages displayed using the <see cref="M:Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.DisplayMessage(Microsoft.VisualStudio.TestTools.UnitTesting.MessageLevel,System.String)"/> API.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestTools.UnitTesting.MessageLevel.Informational">
+            <summary>
+            The message will be displayed as informational, typically used for general updates or non-critical messages.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestTools.UnitTesting.MessageLevel.Warning">
+            <summary>
+            The message will be displayed as a warning, indicating a potential issue or something requiring attention.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.TestTools.UnitTesting.MessageLevel.Error">
+            <summary>
+            The message will be displayed as an error, representing a significant issue or failure.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.TestTools.UnitTesting.FrameworkExtensionsMessages">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestTools.UnitTesting.FrameworkExtensionsMessages.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestTools.UnitTesting.FrameworkExtensionsMessages.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestTools.UnitTesting.FrameworkExtensionsMessages.ArgumentXMustDeriveFromClassY">
+            <summary>
+              Looks up a localized string similar to Type &apos;{0}&apos; is not assignable to &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestTools.UnitTesting.FrameworkExtensionsMessages.AsyncUITestMethodWithNoDispatcherQueue">
+            <summary>
+              Looks up a localized string similar to UITestMethodAttribute.DispatcherQueue should not be null. To use UITestMethodAttribute within a WinUI Desktop App, remember to set the static UITestMethodAttribute.DispatcherQueue during the test initialization..
+            </summary>
+        </member>
         <member name="T:Microsoft.VisualStudio.TestTools.UnitTesting.TestContext">
             <summary>
             Used to store information that is provided to unit tests.
@@ -59,6 +105,16 @@
         <member name="P:Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.CancellationTokenSource">
             <summary>
             Gets or sets the cancellation token source. This token source is canceled when test times out. Also when explicitly canceled the test will be aborted.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.TestData">
+            <summary>
+            Gets or sets the test data for the test method being executed.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.TestDisplayName">
+            <summary>
+            Gets or sets the test display name for the test method being executed.
             </summary>
         </member>
         <member name="P:Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.TestRunDirectory">
@@ -136,6 +192,22 @@
             Gets the current test outcome.
             </summary>
         </member>
+        <member name="P:Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.TestException">
+            <summary>
+            Gets or sets the exception that occurred in the TestInitialize or TestMethod steps.
+            </summary>
+            <remarks>
+            The property is always <c>null</c> when accessed during the TestInitialize or TestMethod steps.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.TestRunCount">
+            <summary>
+            Gets the current attempt of the test run. This property is relevant when
+            using <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.RetryAttribute"/> (or any implementation of <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.RetryBaseAttribute"/>).
+            On the first run, this property is set to 1.
+            On subsequent retries, the value is incremented.
+            </summary>
+        </member>
         <member name="M:Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.AddResultFile(System.String)">
             <summary>
             Adds a file name to the list in TestResult.ResultFileNames.
@@ -169,6 +241,13 @@
             </summary>
             <param name="format">format string.</param>
             <param name="args">the arguments.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.DisplayMessage(Microsoft.VisualStudio.TestTools.UnitTesting.MessageLevel,System.String)">
+            <summary>
+            Used to write trace messages while the test is running.
+            </summary>
+            <param name="messageLevel">The message level.</param>
+            <param name="message">The message.</param>
         </member>
     </members>
 </doc>

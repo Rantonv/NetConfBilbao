@@ -6,6 +6,12 @@
           "-y",
           "mcp-mermaid"
       ]
+    },
+      "playwright": {
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest"
+      ]
     }
   }
 }
