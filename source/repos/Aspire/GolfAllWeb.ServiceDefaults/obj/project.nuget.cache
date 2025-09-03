@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "keGZrIqj5YI=",
+  "dgSpecHash": "sb5c4lK0ibs=",
   "success": true,
-  "projectFilePath": "c:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\Aspire\\GolfAllWeb.ServiceDefaults\\GolfAllWeb.ServiceDefaults.csproj",
+  "projectFilePath": "C:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\Aspire\\GolfAllWeb.ServiceDefaults\\GolfAllWeb.ServiceDefaults.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\doliva\\.nuget\\packages\\microsoft.extensions.ambientmetadata.application\\9.8.0\\microsoft.extensions.ambientmetadata.application.9.8.0.nupkg.sha512",
     "C:\\Users\\doliva\\.nuget\\packages\\microsoft.extensions.compliance.abstractions\\9.8.0\\microsoft.extensions.compliance.abstractions.9.8.0.nupkg.sha512",

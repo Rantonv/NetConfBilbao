@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6Rdqw/rDOfg=",
+  "dgSpecHash": "Sb2osxHSNRs=",
   "success": true,
-  "projectFilePath": "c:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\Aspire\\GolfAllWeb.AspireTests\\GolfAllWeb.AspireTests.csproj",
+  "projectFilePath": "C:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\Aspire\\GolfAllWeb.AspireTests\\GolfAllWeb.AspireTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\doliva\\.nuget\\packages\\aspire.dashboard.sdk.win-x64\\9.4.1\\aspire.dashboard.sdk.win-x64.9.4.1.nupkg.sha512",
     "C:\\Users\\doliva\\.nuget\\packages\\aspire.hosting\\9.4.1\\aspire.hosting.9.4.1.nupkg.sha512",

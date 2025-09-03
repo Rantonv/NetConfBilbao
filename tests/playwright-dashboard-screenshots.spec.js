@@ -28,25 +28,30 @@ const FRONTEND_CANDIDATES = [
 const SCREENSHOTS_DIR = 'docs/screenshots';
 
 async function resolveUrl(page, candidates, preferred) {
-  if (preferred) {
+  const errors = [];
+  const attempt = async (label, url) => {
     try {
-      await page.goto(preferred, { waitUntil: 'domcontentloaded', timeout: 8000 });
-      await page.waitForTimeout(300);
-      return preferred;
-    } catch {
-      // fallback to candidates
+      await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 15000 });
+      await page.waitForTimeout(500);
+      console.log(`[resolveUrl] OK ${label}: ${url}`);
+      return url;
+    } catch (e) {
+      errors.push({ url, message: e.message });
+      console.log(`[resolveUrl] FAIL ${label}: ${url} -> ${e.message}`);
+      return null;
     }
+  };
+
+  if (preferred) {
+    const ok = await attempt('preferred', preferred);
+    if (ok) return ok;
   }
   for (const url of candidates) {
-    try {
-  await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 8000 });
-  // pequeña espera para estabilizar navegación inicial/redirecciones
-  await page.waitForTimeout(300);
-      return url;
-    } catch {
-      // probar siguiente
-    }
+    const ok = await attempt('candidate', url);
+    if (ok) return ok;
   }
+  console.log('[resolveUrl] No reachable URL. Errors:');
+  for (const e of errors) console.log(`  - ${e.url}: ${e.message}`);
   return null;
 }
 
@@ -59,13 +64,29 @@ function ensureDir(dir) {
 test('Captura Aspire Dashboard', async ({ page }) => {
   ensureDir(SCREENSHOTS_DIR);
   const url = await resolveUrl(page, DASHBOARD_CANDIDATES, process.env.DASHBOARD_URL);
-  if (!url) test.skip(true, 'No se encontró Aspire Dashboard en puertos conocidos');
-  await page.screenshot({ path: `${SCREENSHOTS_DIR}/aspire-dashboard.png`, fullPage: true });
+  if (!url) {
+    test.skip(true, 'No se encontró Aspire Dashboard en puertos conocidos');
+  }
+  try {
+    await page.screenshot({ path: `${SCREENSHOTS_DIR}/aspire-dashboard.png`, fullPage: true });
+  } catch (e) {
+    console.log('[dashboard] Screenshot primary attempt failed, retrying minimal wait...', e.message);
+    await page.waitForTimeout(1000);
+    await page.screenshot({ path: `${SCREENSHOTS_DIR}/aspire-dashboard.png` });
+  }
 });
 
 test('Captura Frontend Principal', async ({ page }) => {
   ensureDir(SCREENSHOTS_DIR);
   const url = await resolveUrl(page, FRONTEND_CANDIDATES, process.env.FRONTEND_URL);
-  if (!url) test.skip(true, 'No se encontró Frontend en puertos conocidos');
-  await page.screenshot({ path: `${SCREENSHOTS_DIR}/frontend-main.png`, fullPage: true });
+  if (!url) {
+    test.skip(true, 'No se encontró Frontend en puertos conocidos (verifica que el servicio exponga endpoints externos)');
+  }
+  try {
+    await page.screenshot({ path: `${SCREENSHOTS_DIR}/frontend-main.png`, fullPage: true });
+  } catch (e) {
+    console.log('[frontend] Screenshot primary attempt failed, retrying minimal wait...', e.message);
+    await page.waitForTimeout(1000);
+    await page.screenshot({ path: `${SCREENSHOTS_DIR}/frontend-main.png` });
+  }
 });

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\Aspire\\GolfAllWeb.AppHost\\GolfAllWeb.AppHost.csproj": {}
+    "C:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\Aspire\\GolfAllWeb.AppHost\\GolfAllWeb.AppHost.csproj": {}
   },
   "projects": {
-    "c:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\Aspire\\GolfAllWeb.AppHost\\GolfAllWeb.AppHost.csproj": {
+    "C:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\Aspire\\GolfAllWeb.AppHost\\GolfAllWeb.AppHost.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\Aspire\\GolfAllWeb.AppHost\\GolfAllWeb.AppHost.csproj",
+        "projectUniqueName": "C:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\Aspire\\GolfAllWeb.AppHost\\GolfAllWeb.AppHost.csproj",
         "projectName": "GolfAllWeb.AppHost",
-        "projectPath": "c:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\Aspire\\GolfAllWeb.AppHost\\GolfAllWeb.AppHost.csproj",
+        "projectPath": "C:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\Aspire\\GolfAllWeb.AppHost\\GolfAllWeb.AppHost.csproj",
         "packagesPath": "C:\\Users\\doliva\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\Aspire\\GolfAllWeb.AppHost\\obj\\",
+        "outputPath": "C:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\Aspire\\GolfAllWeb.AppHost\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

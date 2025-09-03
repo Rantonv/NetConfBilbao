@@ -9,5 +9,5 @@ namespace Projects;
 public class GolfAllWeb : global::Aspire.Hosting.IProjectMetadata
 #pragma warning restore CS8981
 {
-    public string ProjectPath => """c:\Users\doliva\source\repos\GitHub\Rantonv\NetConfBilbao\source\repos\GolfAllWeb\GolfAllWeb.csproj""";
+    public string ProjectPath => """C:\Users\doliva\source\repos\GitHub\Rantonv\NetConfBilbao\source\repos\GolfAllWeb\GolfAllWeb.csproj""";
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\GolfAllApi\\GolfAllApi.csproj": {}
+    "C:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\GolfAllApi\\GolfAllApi.csproj": {}
   },
   "projects": {
-    "c:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\Aspire\\GolfAllWeb.ServiceDefaults\\GolfAllWeb.ServiceDefaults.csproj": {
+    "C:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\Aspire\\GolfAllWeb.ServiceDefaults\\GolfAllWeb.ServiceDefaults.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\Aspire\\GolfAllWeb.ServiceDefaults\\GolfAllWeb.ServiceDefaults.csproj",
+        "projectUniqueName": "C:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\Aspire\\GolfAllWeb.ServiceDefaults\\GolfAllWeb.ServiceDefaults.csproj",
         "projectName": "GolfAllWeb.ServiceDefaults",
-        "projectPath": "c:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\Aspire\\GolfAllWeb.ServiceDefaults\\GolfAllWeb.ServiceDefaults.csproj",
+        "projectPath": "C:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\Aspire\\GolfAllWeb.ServiceDefaults\\GolfAllWeb.ServiceDefaults.csproj",
         "packagesPath": "C:\\Users\\doliva\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\Aspire\\GolfAllWeb.ServiceDefaults\\obj\\",
+        "outputPath": "C:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\Aspire\\GolfAllWeb.ServiceDefaults\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -102,14 +102,14 @@
         }
       }
     },
-    "c:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\GolfAllApi\\GolfAllApi.csproj": {
+    "C:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\GolfAllApi\\GolfAllApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\GolfAllApi\\GolfAllApi.csproj",
+        "projectUniqueName": "C:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\GolfAllApi\\GolfAllApi.csproj",
         "projectName": "GolfAllApi",
-        "projectPath": "c:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\GolfAllApi\\GolfAllApi.csproj",
+        "projectPath": "C:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\GolfAllApi\\GolfAllApi.csproj",
         "packagesPath": "C:\\Users\\doliva\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\GolfAllApi\\obj\\",
+        "outputPath": "C:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\GolfAllApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -130,8 +130,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "c:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\Aspire\\GolfAllWeb.ServiceDefaults\\GolfAllWeb.ServiceDefaults.csproj": {
-                "projectPath": "c:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\Aspire\\GolfAllWeb.ServiceDefaults\\GolfAllWeb.ServiceDefaults.csproj"
+              "C:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\Aspire\\GolfAllWeb.ServiceDefaults\\GolfAllWeb.ServiceDefaults.csproj": {
+                "projectPath": "C:\\Users\\doliva\\source\\repos\\GitHub\\Rantonv\\NetConfBilbao\\source\\repos\\Aspire\\GolfAllWeb.ServiceDefaults\\GolfAllWeb.ServiceDefaults.csproj"
               }
             }
           }

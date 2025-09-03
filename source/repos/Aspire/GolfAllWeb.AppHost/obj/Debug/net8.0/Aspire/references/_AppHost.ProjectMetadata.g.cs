@@ -10,5 +10,5 @@ public class GolfAllWeb_AppHost
 #pragma warning restore CS8981
 {
     private GolfAllWeb_AppHost() { }
-    public static string ProjectPath => """c:\Users\doliva\source\repos\GitHub\Rantonv\NetConfBilbao\source\repos\Aspire\GolfAllWeb.AppHost""";
+    public static string ProjectPath => """C:\Users\doliva\source\repos\GitHub\Rantonv\NetConfBilbao\source\repos\Aspire\GolfAllWeb.AppHost""";
 }
